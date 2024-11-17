@@ -219,9 +219,9 @@ import "./site-card.js";
           (item) => html`
             <site-card
               title="${item.title || "Untitled"}"
-              image="${item.image || ""}"
+              image="${item.metadata?.images?.[0] || ""}"
               description="${item.description || "No description available."}"
-              updated="${item.updated || "N/A"}"
+              updated="${item.metadata ? new Date(item.metadata.updated * 1000).toLocaleDateString() : 'N/A'}"
               link="${this.url.replace('/site.json', '')}/${item.slug}"
               sourceLink="${item.slug}/index.html"
             ></site-card>
