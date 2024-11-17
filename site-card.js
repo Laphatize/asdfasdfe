@@ -9,6 +9,7 @@ export class SiteCard extends LitElement {
     this.description = "";
     this.updated = "";
     this.link = "";
+    this.sourceLink = "";
   }
 
   static get properties() {
@@ -18,6 +19,7 @@ export class SiteCard extends LitElement {
       description: { type: String },
       updated: { type: String },
       link: { type: String },
+      sourceLink: { type: String },
     };
   }
 
@@ -95,6 +97,7 @@ export class SiteCard extends LitElement {
         <p>${this.description || "No description provided."}</p>
         <p><strong>Last Updated:</strong> ${this.updated || "N/A"}</p>
         <a href="${this.link}" target="_blank">View Page</a>
+        <a href="${this.link ? new URL(this.sourceLink, this.link).href : this.sourceLink}" target="_blank">View Source</a>
       </div>
     `;
   }

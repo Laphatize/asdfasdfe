@@ -223,7 +223,7 @@ import "./site-card.js";
               description="${item.description || "No description available."}"
               updated="${item.metadata ? new Date(item.metadata.updated * 1000).toLocaleDateString() : 'N/A'}"
               link="${this.url.replace('/site.json', '')}/${item.slug}"
-              sourceLink="${item.slug}/index.html"
+              sourceLink="${item.location}"
             ></site-card>
           `
         )}
