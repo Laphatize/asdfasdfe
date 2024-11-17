@@ -75,6 +75,51 @@ import "./site-card.js";
         line-height: 40px;
         width: 100%;
       }
+
+      .info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background: white;
+        color: black;
+        padding: 16px;
+        border-radius: 8px;
+      }
+
+      .info-row {
+        display: flex;
+        align-items: baseline;
+        padding: 4px 0;
+        border-bottom: 1px solid var(--site-color-border-light);
+      }
+
+      .info-label {
+        min-width: 120px;
+        font-weight: bold;
+        color: var(--site-color-text-secondary);
+      }
+
+      .info-value {
+        flex: 1;
+        color: var(--site-color-text);
+      }
+
+      .card-logo {
+        text-align: center;
+        margin-bottom: 16px;
+        background: white;
+        padding: 16px;
+        border-radius: 8px;
+      }
+
+      .card-logo img {
+        max-width: 200px;
+        height: auto;
+      }
+
+      .overview.site-card {
+        background: transparent;
+      }
     `;
   }
 
@@ -85,6 +130,7 @@ import "./site-card.js";
       placeholder: { type: String },
       siteData: { type: Object },
       items: { type: Array },
+      loading: { type: Boolean, reflect: true },
     };
   }
 
@@ -95,6 +141,7 @@ import "./site-card.js";
     this.placeholder = "https://haxtheweb.org/site.json";
     this.siteData = {};
     this.items = [];
+    this.loading = false;
   }
 
   updated(changedProperties) {
@@ -123,17 +170,45 @@ import "./site-card.js";
       <!-- Site Overview -->
       ${this.siteData.title
         ? html`
-            <div class="overview">
-              <h3>Site Overview</h3>
-              <p><strong>Name:</strong> ${this.siteData.title}</p>
-              <p><strong>Description:</strong> ${this.siteData.description || "N/A"}</p>
-              ${this.siteData.logo
-                ? html`<img src="${this.siteData.logo}" alt="Site Logo" />`
-                : ""}
-              <p><strong>Theme:</strong> ${this.siteData.metadata?.theme?.name || "N/A"}</p>
-              <p><strong>Created:</strong> ${this.siteData.metadata.site.created || "N/A"}</p>
-              <p><strong>Last Updated:</strong> ${this.siteData.updated || "N/A"}</p>
-              <p><strong>Hex Code:</strong> ${this.siteData.hexCode || "N/A"}</p>
+            <div class="overview site-card">
+              <h3 class="card-title">Site Overview</h3>
+              <div class="card-content">
+                ${this.siteData.logo
+                  ? html`<div class="card-logo">
+                      <img src="${this.siteData.logo}" alt="Site Logo" />
+                    </div>`
+                  : ""}
+                <div class="info-list">
+                  <div class="info-row">
+                    <span class="info-label">Name:</span>
+                    <span class="info-value">${this.siteData.title}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Description:</span>
+                    <span class="info-value">${this.siteData.description || "N/A"}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Theme:</span>
+                    <span class="info-value">${this.siteData.metadata?.theme?.name || "N/A"}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Created:</span>
+                    <span class="info-value">${this.siteData.metadata?.site?.created || "N/A"}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Last Updated:</span>
+                    <span class="info-value">${this.siteData.metadata?.site?.updated || "N/A"}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Hex Code:</span>
+                    <span class="info-value">${this.siteData.metadata?.theme?.hexCode || "N/A"}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Icon:</span>
+                    <span class="info-value">${this.siteData.metadata?.theme?.icon || "N/A"}</span>
+                  </div>
+                </div>
+              </div>
             </div>
           `
         : ""}
@@ -153,6 +228,9 @@ import "./site-card.js";
           `
         )}
       </div>
+
+
+      
     `;
   }
 
@@ -182,14 +260,10 @@ import "./site-card.js";
       }
 
       const data = await response.json();
+      window.alert(JSON.stringify(data, null, 2));
 
-      // Validate schema
-      if (!data.metadata || !data.items || !Array.isArray(data.items)) {
-        throw new Error("Invalid site.json schema - missing required fields");
-      }
-
-      // Update component state
-      this.siteData = data.metadata;
+      // Store the entire data object
+      this.siteData = data;
       this.items = data.items;
       this.loading = false;
     } catch (error) {
