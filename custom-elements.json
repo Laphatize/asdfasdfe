@@ -1,0 +1,512 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "hax-search.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HaxSearch",
+          "members": [
+            {
+              "kind": "method",
+              "name": "inputChanged",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "searchSite"
+            },
+            {
+              "kind": "field",
+              "name": "tag",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "title",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"HAX Search\"",
+              "privacy": "public",
+              "attribute": "title"
+            },
+            {
+              "kind": "field",
+              "name": "loading",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "loading",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "items",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "items"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "privacy": "public",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "jsonURL",
+              "type": {
+                "text": "string"
+              },
+              "default": "'https://haxtheweb.org/site.json'",
+              "privacy": "public",
+              "attribute": "json-url"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "title",
+              "fieldName": "title"
+            },
+            {
+              "name": "loading",
+              "fieldName": "loading"
+            },
+            {
+              "name": "items",
+              "fieldName": "items"
+            },
+            {
+              "name": "value",
+              "fieldName": "value"
+            },
+            {
+              "name": "json-url",
+              "fieldName": "jsonURL"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HaxSearch",
+          "declaration": {
+            "name": "HaxSearch",
+            "module": "hax-search.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "declaration": {
+            "name": "HaxSearch",
+            "module": "hax-search.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "project-1.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`project-1`",
+          "name": "project1",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tag",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "inputChanged",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "analyzeSite"
+            },
+            {
+              "kind": "field",
+              "name": "haxProperties",
+              "static": true,
+              "description": "haxProperties integration via file reference"
+            },
+            {
+              "kind": "field",
+              "name": "title",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "privacy": "public",
+              "attribute": "title"
+            },
+            {
+              "kind": "field",
+              "name": "t",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      ...this.t,\n      title: \"Title\",\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "url",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "privacy": "public",
+              "attribute": "url"
+            },
+            {
+              "kind": "field",
+              "name": "metadata",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}",
+              "privacy": "public",
+              "attribute": "metadata"
+            },
+            {
+              "kind": "field",
+              "name": "items",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "items"
+            },
+            {
+              "kind": "field",
+              "name": "loading",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "loading",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "",
+              "privacy": "public",
+              "attribute": ""
+            }
+          ],
+          "attributes": [
+            {
+              "name": "",
+              "fieldName": ""
+            },
+            {
+              "name": "title",
+              "fieldName": "title"
+            },
+            {
+              "name": "url",
+              "fieldName": "url"
+            },
+            {
+              "name": "metadata",
+              "fieldName": "metadata"
+            },
+            {
+              "name": "items",
+              "fieldName": "items"
+            },
+            {
+              "name": "loading",
+              "fieldName": "loading"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "DDDSuper",
+              "package": "@haxtheweb/d-d-d/d-d-d.js"
+            },
+            {
+              "name": "I18NMixin",
+              "package": "@haxtheweb/i18n-manager/lib/I18NMixin.js"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "project-1",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "project1",
+          "declaration": {
+            "name": "project1",
+            "module": "project-1.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "site-analyzer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "SiteAnalyzer",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_updateURL",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "analyzeSite"
+            },
+            {
+              "kind": "field",
+              "name": "tag",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "url",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "privacy": "public",
+              "attribute": "url"
+            },
+            {
+              "kind": "field",
+              "name": "isValid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "isValid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"https://haxtheweb.org/site.json\"",
+              "privacy": "public",
+              "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "siteData",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}",
+              "privacy": "public",
+              "attribute": "siteData"
+            },
+            {
+              "kind": "field",
+              "name": "items",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "items"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "url",
+              "fieldName": "url"
+            },
+            {
+              "name": "isValid",
+              "fieldName": "isValid"
+            },
+            {
+              "name": "placeholder",
+              "fieldName": "placeholder"
+            },
+            {
+              "name": "siteData",
+              "fieldName": "siteData"
+            },
+            {
+              "name": "items",
+              "fieldName": "items"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "DDDSuper",
+              "package": "@haxtheweb/d-d-d"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "declaration": {
+            "name": "SiteAnalyzer",
+            "module": "site-analyzer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "site-card.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "SiteCard",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tag",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "title",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "privacy": "public",
+              "attribute": "title"
+            },
+            {
+              "kind": "field",
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "privacy": "public",
+              "attribute": "image"
+            },
+            {
+              "kind": "field",
+              "name": "description",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "privacy": "public",
+              "attribute": "description"
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "privacy": "public",
+              "attribute": "link"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "title",
+              "fieldName": "title"
+            },
+            {
+              "name": "image",
+              "fieldName": "image"
+            },
+            {
+              "name": "description",
+              "fieldName": "description"
+            },
+            {
+              "name": "updated",
+              "fieldName": "updated"
+            },
+            {
+              "name": "link",
+              "fieldName": "link"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SiteCard",
+          "declaration": {
+            "name": "SiteCard",
+            "module": "site-card.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "declaration": {
+            "name": "SiteCard",
+            "module": "site-card.js"
+          }
+        }
+      ]
+    }
+  ]
+}
